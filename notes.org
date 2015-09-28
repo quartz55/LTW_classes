@@ -1,8 +1,10 @@
 * Linguagens e Tecnologias Web
 ** Datas
-| Tipo | Data | Peso |
-|------+------+------|
-|      |      |      |
+|---+------+------|
+|   | Data | Peso |
+|---+------+------|
+|   |      |      |
+|---+------+------|
 
 ** Notas
 *** HTML5
