@@ -1,0 +1,55 @@
+body{
+    background-color: #232123;
+}
+
+body #tabs {
+    position:absolute;
+    left: 22%;
+    top: 2em;
+    margin: 0 0;
+    margin-left: 0;
+    padding-left: 0;
+}
+body #tabs li{
+    display: inline;
+    border: 1px solid black;
+    padding: 1em 1em;
+    margin-right: 0.5em;
+    margin-left: 0;
+
+    border-radius: 10px 30px 0 0;
+    background-color: #ABA9AB;
+}
+
+body #tabs li div, body #wellcome{
+    position: fixed;
+
+    top: 4em;
+    bottom: 20%;
+    left: 20%;
+    right: 20%;
+
+    border: 1px solid;
+    border-radius: 10px;
+
+    padding: 2em 2em;
+
+    background-color: #ABA9AB;
+
+    display: none;
+
+    z-index: 10;
+}
+
+body #tabs li:target {
+    background-color: white;
+}
+
+body #tabs li:target div{
+    display: block;
+}
+
+body #wellcome {
+    display: block;
+    z-index: 9;
+}

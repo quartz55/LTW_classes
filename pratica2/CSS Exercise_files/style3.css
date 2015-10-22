@@ -1,0 +1,137 @@
+html, body {
+    height: auto;
+    overflow: overlay;
+}
+
+body {
+    height:auto;
+    overflow:overlay;
+    background-color: #ddddff;
+}
+
+#header, h1, h2 {
+    color: white;
+    background-color: #336699;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin: 0 0;
+}
+
+#header h1 {
+    position: absolute;
+    top: 50%;
+    top: 0;
+    left: 80px;
+    height: 10%;
+    width: 100%;
+}
+
+#header h2 {
+    transform-origin: 0 0;
+    transform: translateX(80px) rotate(90deg);
+    text-align: center;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 600px;
+    z-index: 9999;
+}
+
+#menu {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    bottom: 0;
+    width: calc(40% - 80px);
+    padding: 0;
+    background-color: #669933;
+}
+
+#menu ul {
+    margin: 0 0;
+    padding: 0em 0em;
+}
+
+#menu li {
+    position: relative;
+    top: 50%;
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+}
+
+#menu li:hover {
+    background-color: #77aa44;
+}
+
+#menu a {
+    height: 2em;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+#content {
+    position: absolute;
+    left: 80px;
+    top: 10%;
+    width: 60%;
+    background-color: #ffffff;
+}
+
+div.news-item {
+    padding: 0.1em 1em;
+    border-bottom: 2px solid black;
+}
+
+div.news-item h3 {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0.2em 0;
+    margin: 0 0;
+}
+
+div.news-item p.introduction {
+    font-style: italic;
+}
+
+div.news-item a {
+    text-decoration: none;
+}
+
+div.news-item ul {
+    padding: 0;
+    background-color: white;
+    padding: 0.5em 0px;
+}
+
+div.news-item li {
+    color: black;
+    display: inline;
+    padding: 0.3em 1em;
+    border-bottom: 4px solid #9C6B3A;
+}
+div.news-item li:hover {
+    border-bottom-color: #F5A85B;
+}
+
+div.news-item li a {
+    color: black;
+    text-decoration: none;
+}
+
+div.news-item img {
+    float: left;
+    margin: 0 1em 1em 0em;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    background-color: white;
+    padding: 1px 0 1px 1em;
+}
