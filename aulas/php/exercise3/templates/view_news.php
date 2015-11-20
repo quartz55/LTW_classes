@@ -3,6 +3,8 @@
     <p class="introduction"><?= $content['introduction'] ?></p>
     <p><?= $content['fulltext'] ?></p>
 
+    <a href="edit_news.php?id=<?=$id?>">Edit article</a>
+
     <div id="comments">
         <?php include("templates/list_comments.php") ?>
     </div>
