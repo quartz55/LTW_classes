@@ -1,5 +1,5 @@
 function regform(form, username, pass, conf) {
-    if (username == '' || pass == '') {
+    if (username.value == '' || pass.value == '') {
         alert('You must provide both a username and password');
         return false;
     }
@@ -24,8 +24,9 @@ function regform(form, username, pass, conf) {
     }
 
     var confirm_btn = document.createElement("input");
-    form.appendChild(confirm_btn);
     confirm_btn.name = "confirm_btn";
+    confirm_btn.type = "hidden";
+    form.appendChild(confirm_btn);
 
     form.submit();
     return true;
