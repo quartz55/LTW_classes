@@ -1,6 +1,8 @@
 <h1>Event info:</h2>
 <ul>
-    <li>Created by: <?=$event['creator'] ?></li>
+    <li>Created by:
+        <a href="show_user.php?username=<?=$event['creator']?>"> <?=$event['creator'] ?></a>
+    </li>
     <li>Type: <?=$event['type'] ?></li>
     <li>Date: <?=$event['date'] ?></li>
     <li>Description: <?=$event['description'] ?></li>
@@ -10,7 +12,7 @@
 <?php if (count($registered) <= 0) echo "<p>No users registered to this event yet</p>" ?>
 <ul>
     <?php foreach ($registered as $reg) { ?>
-        <li><?=$reg['user']?></li>
+        <li><a href="show_user.php?username=<?=$reg['user']?>"><?=$reg['user']?></a></li>
     <?php } ?>
 </ul>
 

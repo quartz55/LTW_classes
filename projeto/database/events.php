@@ -73,7 +73,7 @@ WHERE event_id = ? AND user = ?');
 function unregisterEvent($id, $user) {
     global $db;
 
-    if (!isRegistered($id, $user)) return false;
+    if (!isRegisteredInEvent($id, $user)) return false;
 
     $a = $db->prepare('DELETE FROM event_registrations
 WHERE user = ? AND event_id = ?');
@@ -85,7 +85,7 @@ WHERE user = ? AND event_id = ?');
 function registerEvent($id, $user) {
     global $db;
 
-    if (isRegistered($id, $user)) return false;
+    if (isRegisteredInEvent($id, $user)) return false;
 
     $a = $db->prepare('INSERT INTO event_registrations VALUES(?, ?)');
     $a->execute(array($user, $id));
