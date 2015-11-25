@@ -7,7 +7,7 @@ $user_events = getUserEvents($user['username']);
 $user_events_reg = getUserRegisteredEvents($user['username']);
 ?>
 
-<h2><?=$user['username']?> info:</h2>
+<h1><?=$user['username']?> info</h1>
 <ul>
     <li>Username: <?=$user['username'] ?></li>
     <li>Password: <?=$user['password'] ?></li>
@@ -33,6 +33,7 @@ $user_events_reg = getUserRegisteredEvents($user['username']);
     </ul>
 </ul>
 
+<h2>User menu</h2>
 <ul>
     <li><a href="action_delete_user.php?username=<?=$user['username']?>">Delete user</a></li>
 </ul>

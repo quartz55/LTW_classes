@@ -1,4 +1,4 @@
-<h1>Event info:</h2>
+<h1>Event info</h2>
 <ul>
     <li>Created by:
         <a href="show_user.php?username=<?=$event['creator']?>"> <?=$event['creator'] ?></a>
@@ -8,7 +8,7 @@
     <li>Description: <?=$event['description'] ?></li>
 </ul>
 
-<h3>Registered:</h3>
+<h3>Registered</h3>
 <?php if (count($registered) <= 0) echo "<p>No users registered to this event yet</p>" ?>
 <ul>
     <?php foreach ($registered as $reg) { ?>
@@ -16,7 +16,7 @@
     <?php } ?>
 </ul>
 
-<h4>Comments:</h4>
+<h4>Comments</h4>
 <ul>
     <?php foreach ($comments as $comment) { ?>
         <li class="comment">

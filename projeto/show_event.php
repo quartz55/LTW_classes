@@ -27,6 +27,7 @@ include_once("templates/show_event.php");
     </form>
 <?php } else echo '<p>Register in event to comment</p>'?>
 
+<h2>Event menu</h2>
 <ul>
     <?php if ($logged) { ?>
         <?php if (!isRegisteredInEvent($id, $_SESSION['username'])) {?>
