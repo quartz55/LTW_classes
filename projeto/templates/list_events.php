@@ -10,6 +10,6 @@ $events = getEvents();
     ?>
 <ul>
     <?php foreach ($events as $event) { ?>
-        <li><b><?=$event['type']?></b>: <a href="show_event.php?id=<?=$event['id']?>"><?=$event['description']?></a></li>
+        <li><a href="show_event.php?id=<?=$event['id']?>"><?=$event['date']?> | <?=$event['type']?> | <?=$event['description']?></a> Created by <?=$event['creator']?></li>
     <?php } ?>
 </ul>

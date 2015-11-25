@@ -1,12 +1,3 @@
-<?php
-
-include_once("database/events.php");
-
-$event = getEvent($_GET['id']);
-$registered = getRegistered($_GET['id']);
-$comments = getComments($_GET['id']);
-?>
-
 <h1>Event info:</h2>
 <ul>
     <li>Created by: <?=$event['creator'] ?></li>
@@ -16,6 +7,7 @@ $comments = getComments($_GET['id']);
 </ul>
 
 <h3>Registered:</h3>
+<?php if (count($registered) <= 0) echo "<p>No users registered to this event yet</p>" ?>
 <ul>
     <?php foreach ($registered as $reg) { ?>
         <li><?=$reg['user']?></li>
@@ -25,7 +17,12 @@ $comments = getComments($_GET['id']);
 <h4>Comments:</h4>
 <ul>
     <?php foreach ($comments as $comment) { ?>
-        <li><b><?=$comment['author']?>: <?=$comment['text']?></b></li>
+        <li class="comment">
+            <a href="show_user.php?username=<?=$comment['author']?>">
+                <?=$comment['author']?>
+            </a>
+            <?=$comment['text']?>
+        </li>
     <?php } ?>
 </ul>
 

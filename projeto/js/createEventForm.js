@@ -4,6 +4,18 @@ $(document).ready(function() {
     });
 });
 
+$.ajax("database/event_types.php", {
+    type: "POST",
+    dataType: "json",
+    data: "data",
+    success: function(data) {
+        $("form #type").empty();
+        for (var type in data) {
+            $("form #type").append("<option>" + data[type] + "</option>");
+        }
+    }
+});
+
 function createEventForm(form) {
     if (form.date.value == '' || form.description.value == '') {
         alert("Please fill all the fields");

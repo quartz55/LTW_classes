@@ -1,13 +1,36 @@
 <?php
 include_once("database/users.php");
+include_once("database/events.php");
 
 $user = getUser($_GET['username']);
+$user_events = getUserEvents($user['username']);
+$user_events_reg = getUserRegisteredEvents($user['username']);
 ?>
 
 <h2><?=$user['username']?> info:</h2>
 <ul>
     <li>Username: <?=$user['username'] ?></li>
     <li>Password: <?=$user['password'] ?></li>
+    <li>Events created:</li>
+    <ul>
+        <?php if (count($user_events) > 0) {
+            foreach ($user_events as $event) { ?>
+            <li><a href="show_event.php?id=<?=$event['id']?>"><?=printEvent($event)?></a></li>
+            <?php } ?>
+        <?php } else {?>
+            <li>User hasn't created any events</li>
+            <?php } ?>
+    </ul>
+    <li>Events registered:</li>
+    <ul>
+        <?php if (count($user_events_reg) > 0) {
+            foreach ($user_events_reg as $event) { ?>
+            <li><a href="show_event.php?id=<?=$event['id']?>"><?=printEvent($event)?></a></li>
+            <?php } ?>
+        <?php } else {?>
+            <li>User isn't registered in any events</li>
+            <?php } ?>
+    </ul>
 </ul>
 
 <ul>

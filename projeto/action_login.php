@@ -1,9 +1,12 @@
 <?php
 
-include_once('database/connection.php');
 include_once('database/users.php');
 
 session_start();
+
+$referer;
+if (isset($_COOKIE['redirect'])) $referer = $_COOKIE['redirect'];
+else $referer = './index.php';
 
 if (isset($_POST['login_btn'])) {
     if (checkCredentials($_POST['username'], $_POST['password'])) {
@@ -15,10 +18,10 @@ if (isset($_POST['login_btn'])) {
     }
     else echo "<script>alert('User is not registered!')</script>";
 
-    header('Location: ' . './index.php');
+    header('Location: ' . $referer);
 }
 else if (isset($_POST['cancel_btn'])){
-    header('Location: ' . './index.php');
+    header('Location: ' . $referer);
 }
 else {
     echo "<h1>You shouldn't be here</h1>";

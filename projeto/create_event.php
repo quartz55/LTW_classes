@@ -17,12 +17,7 @@ include_once("templates/header.php");
 <form action="action_create_event.php" method="post" >
     <input type="hidden" name="creator" value="<?=$_SESSION['username']?>">
 
-    Type: <select name="type">
-        <option value="party">Party</option>
-        <option value="concert">Concert</option>
-        <option value="conference">Conference</option>
-        <option value="sports">Sports</option>
-    </select>
+    Type: <select name="type" id="type"></select>
     <br>
     Date: <input type="datetime" name="date" id="date" >
     <br>

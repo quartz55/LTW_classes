@@ -4,6 +4,7 @@
 <head>
     <title>LTW Project</title>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="js/cookies.js" ></script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         </form>
     <?php } else { ?>
         <ul>
-            <li> <a href="login.php" >Login</a></li>
+            <li> <a href="login.php" onclick="setCookie('redirect', getUrl());">Login</a></li>
             <li> <a href="register.php" >Register</a></li>
         </ul>
     <?php } ?>
