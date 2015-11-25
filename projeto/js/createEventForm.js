@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("#date").datepicker({
-        dateFormat: "dd/mm/yy"
+        dateFormat: "yy-mm-dd"
     });
 });
 

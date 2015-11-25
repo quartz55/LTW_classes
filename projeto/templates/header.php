@@ -14,10 +14,11 @@
             Logged in as:
             <label><b><?=$_SESSION['username']?></b></label>
             <input type="submit" value="Logout">
+            <input type="submit" onclick="setRedirect();"name="relogin_btn" value="Change user">
         </form>
     <?php } else { ?>
         <ul>
-            <li> <a href="login.php" onclick="setCookie('redirect', getUrl());">Login</a></li>
+            <li> <a href="login.php" onclick="setRedirect();">Login</a></li>
             <li> <a href="register.php" >Register</a></li>
         </ul>
     <?php } ?>

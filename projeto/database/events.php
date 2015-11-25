@@ -13,7 +13,7 @@ function getEvent($id) {
 function getEvents() {
     global $db;
 
-    $a = $db->prepare('SELECT * FROM events');
+    $a = $db->prepare('SELECT * FROM events ORDER BY date ASC');
     $a->execute();
 
     return $a->fetchAll();
@@ -25,7 +25,7 @@ function printEvent($event) {
 
 function getUserEvents($username) {
     global $db;
-    $a = $db->prepare('SELECT * FROM events WHERE creator = ?');
+    $a = $db->prepare('SELECT * FROM events WHERE creator = ? ORDER BY date ASC');
     $a->execute(array($username));
 
     return $a->fetchAll();
@@ -95,6 +95,12 @@ function registerEvent($id, $user) {
 
 function deleteEvent($id) {
     global $db;
+
+    $a = $db->prepare('DELETE FROM event_comments WHERE event_id = ?');
+    $a->execute(array($id));
+
+    $a = $db->prepare('DELETE FROM event_registrations WHERE event_id = ?');
+    $a->execute(array($id));
 
     $a = $db->prepare('DELETE FROM events WHERE id = ?');
     $a->execute(array($id));

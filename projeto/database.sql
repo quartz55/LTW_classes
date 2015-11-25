@@ -5,7 +5,7 @@ password VARCHAR
 
 CREATE TABLE IF NOT EXISTS events (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-date DATE,
+date DATETIME,
 description VARCHAR,
 type VARCHAR,
 creator VARCHAR REFERENCES users(username)
