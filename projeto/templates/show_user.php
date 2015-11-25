@@ -33,9 +33,13 @@ $user_events_reg = getUserRegisteredEvents($user['username']);
     </ul>
 </ul>
 
-<h2>User menu</h2>
-<ul>
-    <li><a href="action_delete_user.php?username=<?=$user['username']?>">Delete user</a></li>
-</ul>
+<div class="nav_buttons">
+    <h2>User menu</h2>
+    <ul>
+        <li>
+            <a href="action_delete_user.php?username=<?=$user['username']?>">Delete user</a>
+        </li>
+    </ul>
+</div>
 
-<a href=<?=$_SERVER['HTTP_REFERER']?>>Back</a>
+<a id="back_btn" href=<?=$_SERVER['HTTP_REFERER']?>>Back</a>

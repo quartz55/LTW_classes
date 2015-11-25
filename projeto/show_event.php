@@ -29,21 +29,23 @@ include_once("templates/show_event.php");
     <p>Register in the event to comment</p>
 <?php } ?>
 
-<h2>Event menu</h2>
-<ul>
-    <?php if ($logged) { ?>
-        <?php if (!isRegisteredInEvent($id, $_SESSION['username'])) {?>
-            <li><a href="action_register_event.php?id=<?=$id?>">Register</a></li>
-        <?php } else {?>
-            <li><a href="action_unregister_event.php?id=<?=$id?>">Unregister</a></li>
+<div class="nav_buttons">
+    <h2>Event menu</h2>
+    <ul>
+        <?php if ($logged) { ?>
+            <?php if (!isRegisteredInEvent($id, $_SESSION['username'])) {?>
+                <li><a href="action_register_event.php?id=<?=$id?>">Register</a></li>
+            <?php } else {?>
+                <li><a href="action_unregister_event.php?id=<?=$id?>">Unregister</a></li>
+            <?php } ?>
+            <?php if ($_SESSION['username'] == $event['creator']
+                                            || $_SESSION['username'] == 'admin') { ?>
+                <li><a href="action_delete_event.php?id=<?=$id?>">Delete event</a></li>
+            <?php } ?>
         <?php } ?>
-        <?php if ($_SESSION['username'] == $event['creator']
-                                        || $_SESSION['username'] == 'admin') { ?>
-            <li><a href="action_delete_event.php?id=<?=$id?>">Delete event</a></li>
-        <?php } ?>
-    <?php } ?>
-    <li><a href="list_events.php">Back</a></li>
-</ul>
+    </ul>
+</div>
+<a id="back_btn" href="list_events.php">Back</a>
 
 <?php
 include_once("templates/footer.php");
