@@ -1,0 +1,19 @@
+#events_list {
+    margin: 1em 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#events_list li {
+    display: block;
+    background-color: #303030;
+    /* margin: 5px 0; */
+    padding: 5px;
+    color: white;
+}
+
+#events_list a {
+    text-align: left;
+    text-decoration: none;
+    color: deepskyblue;
+}

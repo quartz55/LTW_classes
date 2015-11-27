@@ -1,0 +1,92 @@
+html {
+    font-family: sans-serif;
+}
+
+/* Navigation menu */
+.nav_buttons h2 {
+    display: none;
+}
+
+.nav_buttons ul {
+    background-color: #303030;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.nav_buttons li, #back_btn {
+    float: left;
+    background: none;
+    padding: 0;
+}
+
+.nav_buttons li:hover, #back_btn:hover {
+    background: deepskyblue;
+}
+
+.nav_buttons li:active, #back_btn:active {
+    background: black;
+}
+
+.nav_buttons a, #back_btn {
+    text-align: center;
+    display: block;
+    padding: 5px 10px;
+    color: white;
+    /* font-weight: bold; */
+    text-decoration: none;
+}
+
+.nav_buttons a:hover, #back_btn:hover {
+                          color:black;
+}
+
+#content {
+    overflow: auto;
+}
+
+#main, #user_panel {
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 1%;
+    background-color: #EAEAEA;
+}
+
+#main {
+    float: left;
+    width: 79%;
+    margin-right: 1%;
+    margin-left: 0;
+}
+
+.maintitle {
+     margin: 0;
+     padding: 0;
+ }
+
+/* Sidebar user menu */
+#user_panel {
+    float: right;
+    width: 20%;
+    margin-left: 0;
+    margin-right: 0;
+
+    text-align: center;
+    color: black;
+}
+
+#user_panel a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+#user_panel a:hover {
+    color: deepskyblue;
+}
+
+#user_panel input {
+    display: block;
+    width: 100%;
+}
