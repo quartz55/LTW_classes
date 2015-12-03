@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    if (!getCookie('redirect')) setRedirect();
+});
+
 function setRedirect() {
     setCookie('redirect', getUrl());
 }

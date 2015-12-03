@@ -12,22 +12,15 @@ $id = $_GET['id'];
 $event = getEvent($id);
 $registered = getRegistered($id);
 $comments = getComments($id);
-
-include_once("templates/show_event.php");
 ?>
 
-<!-- Comment form -->
-<?php if ($logged && isRegisteredInEvent($id, $_SESSION['username'])) {?>
-    <form action="action_comment.php" method="post" >
-        <input type="hidden" name="id" value="<?=$id?>">
-        <input type="hidden" name="author" value="<?=$_SESSION['username']?>">
-        <input type="textarea" name="text">
-        <br>
-        <input type="submit" name="comment_btn" value="Comment">
-    </form>
-<?php } else { ?>
-    <p>Register in the event to comment</p>
-<?php } ?>
+<link rel="stylesheet" href="css/show_event.css">
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/database.js"></script>
+<script type="text/javascript" src="js/show_event.js"></script>
+
+<?php include_once("templates/show_event.php"); ?>
 
 <div class="nav_buttons">
     <h2>Event menu</h2>
@@ -40,12 +33,13 @@ include_once("templates/show_event.php");
             <?php } ?>
             <?php if ($_SESSION['username'] == $event['creator']
                                             || $_SESSION['username'] == 'admin') { ?>
-                <li><a href="action_delete_event.php?id=<?=$id?>">Delete event</a></li>
+                <li id="edit_btn"><a onclick="toggleEditMode()" href="#">Edit event</a></li>
+                <li><a onclick="confirmDelete('action_delete_event.php?id=<?=$id?>');" href="#">Delete event</a></li>
             <?php } ?>
-        <?php } ?>
+        <?php }?>
+        <li><a id="back_btn" href="list_events.php">Back</a></li>
     </ul>
 </div>
-<a id="back_btn" href="list_events.php">Back</a>
 
 <?php
 include_once("templates/footer.php");

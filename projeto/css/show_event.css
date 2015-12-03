@@ -1,0 +1,96 @@
+#info {
+  background-color: white; }
+  #info > h1 {
+    background-color: #303030;
+    color: white;
+    margin: 0;
+    padding: 0.5em; }
+  #info > form > ul {
+    padding: 0;
+    margin: 15px; }
+    #info > form > ul li {
+      display: block; }
+      #info > form > ul li a {
+        color: deepskyblue;
+        font-weight: bold;
+        text-decoration: none; }
+        #info > form > ul li a:hover {
+          color: black; }
+  #info #registered {
+    margin: 0 15px; }
+    #info #registered h3 {
+      background-color: #A0A0A0;
+      color: white;
+      margin: 0px 0px;
+      padding: 0.5em; }
+    #info #registered ul {
+      margin: 0;
+      padding: 15px; }
+      #info #registered ul s {
+        text-decoration: none;
+        color: gray; }
+      #info #registered ul li {
+        display: block;
+        margin: 5px 0; }
+        #info #registered ul li a {
+          color: #303030;
+          font-weight: bold;
+          text-decoration: none; }
+          #info #registered ul li a:hover {
+            color: deepskyblue; }
+
+#comments {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: white; }
+  #comments h4 {
+    background-color: #303030;
+    color: white;
+    padding: 0.5em;
+    margin: 0px; }
+  #comments ul {
+    margin: 15px;
+    padding: 0; }
+    #comments ul s {
+      text-decoration: none;
+      color: gray; }
+    #comments ul li {
+      display: block;
+      color: #303030;
+      margin: 5px 0; }
+      #comments ul li a {
+        color: deepskyblue;
+        font-weight: bold;
+        text-decoration: none; }
+        #comments ul li a:hover {
+          color: black; }
+  #comments #comment_form {
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+    background-color: #F0F0F0;
+    color: gray; }
+    #comments #comment_form > form > input[name=text] {
+      background-color: transparent;
+      border: 0;
+      font-size: 14px;
+      width: 95%; }
+    #comments #comment_form > form > input[name=comment_btn] {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      /* width: 5%; */
+      padding-right: 10px;
+      padding-left: 10px;
+      border: none;
+      background-color: #303030;
+      color: white;
+      font-weight: bold; }
+      #comments #comment_form > form > input[name=comment_btn]:hover {
+        background-color: deepskyblue;
+        color: #303030; }
+
+/*# sourceMappingURL=show_event.css.map */

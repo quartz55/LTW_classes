@@ -39,7 +39,7 @@ $user_events_reg = getUserRegisteredEvents($user['username']);
         <li>
             <a href="action_delete_user.php?username=<?=$user['username']?>">Delete user</a>
         </li>
+        <li><a id="back_btn" href=<?=$_SERVER['HTTP_REFERER']?>>Back</a></li>
     </ul>
 </div>
 
-<a id="back_btn" href=<?=$_SERVER['HTTP_REFERER']?>>Back</a>

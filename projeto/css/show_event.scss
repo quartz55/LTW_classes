@@ -1,0 +1,135 @@
+#info {
+    background-color: white;
+    &>h1 {
+        background-color: #303030;
+        color: white;
+        margin: 0;
+        padding: 0.5em;
+    }
+
+    &>form {
+        &>ul {
+            padding: 0;
+            margin: 15px;
+            li {
+                display: block;
+                a {
+                    color: deepskyblue;
+                    font-weight: bold;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+    #registered {
+        margin: 0 15px;
+        h3 {
+            background-color: #A0A0A0;
+            color: white;
+            margin: 0px 0px;
+            padding: 0.5em;
+        }
+
+        ul {
+            margin: 0;
+            padding: 15px;
+            s {
+                text-decoration: none;
+                color: gray;
+            }
+            li {
+                display: block;
+                margin: 5px 0;
+                a {
+                    color: #303030;
+                    font-weight: bold;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: deepskyblue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#comments {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+
+    h4 {
+        background-color: #303030;
+        color: white;
+        padding: 0.5em;
+        margin: 0px;
+    }
+
+    ul {
+        margin: 15px;
+        padding: 0;
+        s {
+            text-decoration: none;
+            color: gray;
+        }
+        li {
+            display: block;
+            color: #303030;
+            margin: 5px 0;
+
+            a {
+                color: deepskyblue;
+                font-weight: bold;
+                text-decoration: none;
+
+                &:hover {
+                    color: black;
+                }
+            }
+        }
+    }
+
+    #comment_form {
+        position:relative;
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 10px;
+        background-color: #F0F0F0;
+
+        &>form {
+            &>input[name=text]{
+                background-color: transparent;
+                border: 0;
+                font-size: 14px;
+                width: 95%;
+            }
+
+            &>input[name=comment_btn]{
+                position:absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                /* width: 5%; */
+                padding-right: 10px;
+                padding-left: 10px;
+                border: none;
+                background-color: #303030;
+                color: white;
+                font-weight: bold;
+
+                &:hover {
+                    background-color: deepskyblue;
+                    color: #303030;
+                }
+            }
+        }
+        color: gray;
+    }
+}

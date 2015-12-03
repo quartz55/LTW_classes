@@ -36,7 +36,7 @@ function getUserRegisteredEvents($username) {
     $a = $db->prepare('
 SELECT * FROM events
 WHERE id IN
-(SELECT event_id FROM event_registrations WHERE user = ?)');
+(SELECT event_id FROM event_registrations WHERE user = ?) ORDER BY date ASC');
     $a->execute(array($username));
 
     return $a->fetchAll();
@@ -104,6 +104,17 @@ function deleteEvent($id) {
 
     $a = $db->prepare('DELETE FROM events WHERE id = ?');
     $a->execute(array($id));
+
+    return true;
+}
+
+function editEvent($id, $date, $description, $type) {
+    global $db;
+
+    $a = $db->prepare('UPDATE events
+SET date = ?, description = ?, type = ?
+WHERE events.id = ?');
+    $a->execute(array($date, $description, $type, $id));
 
     return true;
 }
