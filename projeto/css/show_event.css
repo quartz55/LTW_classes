@@ -8,6 +8,38 @@
   #info > form > ul {
     padding: 0;
     margin: 15px; }
+    #info > form > ul .hover {
+      position: relative;
+      display: inline-block;
+      height: 200px; }
+      #info > form > ul .hover:after, #info > form > ul .hover:before {
+        position: absolute;
+        opacity: 1;
+        transition: all 0.5s; }
+      #info > form > ul .hover:after {
+        content: 'CLICK TO CHANGE';
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        box-sizing: border-box;
+        padding: 5px 10px;
+        color: #303030;
+        z-index: 1;
+        font-weight: bold;
+        font-size: 20px; }
+      #info > form > ul .hover:before {
+        content: '\A';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3); }
+      #info > form > ul .hover:hover:after, #info > form > ul .hover:hover:before {
+        opacity: 0; }
+    #info > form > ul #preview {
+      height: 200px; }
     #info > form > ul li {
       display: block; }
       #info > form > ul li a {

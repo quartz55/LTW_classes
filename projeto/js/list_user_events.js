@@ -1,11 +1,12 @@
 var types = [];
+var form_backup;
 
 $(document).ready(function() {
     $("#date").datepicker({
         dateFormat: "yy-mm-dd"
     });
 
-    queryDatabase("database/event_types.php", function (data) {types = data; addTypes();});
+    queryDatabase("database/event_types.php", function (data) {types = data; addTypes(); form_backup = $(".popup>form").clone();});
 });
 
 function listAllEvents() {
@@ -52,26 +53,40 @@ function listAttendingEvents(user) {
 }
 
 function listEvent(event, element) {
-    // console.log(event);
-    var html_string = "<li><a href='show_event.php?id=" + event['id'] + "'>" +
-        event['date'] + " | " + event['type'] + " | " + event['description'] + "</a>" +
-        " Created by " + event['creator'] + "</li>";
-    // console.log(html_string);
+    var html_string = "<li><a href='show_event.php?id=" + event.id + "'>" +
+        event.date + " | " + event.type + " | " + event.description + "</a>" +
+        " Created by " + event.creator + "</li>";
     element.append(html_string);
 }
 
 function addTypes () {
-    $(".popup form #type").empty();
+    var type_opt = $(".popup form #type");
+    type_opt.empty();
+    type_opt.append("<option disabled selected>Select Type</option>");
     for (var type in types) {
-        $(".popup form #type").append("<option>" + types[type] + "</option>");
+        type_opt.append("<option>" + types[type] + "</option>");
     }
 }
-
-// createUserEvent('quartz');
 
 function showCreateEventPopup() {
     $(".popup").css('display', 'block');
     $(".black_overlay").css('display', 'block');
+
+    $(".popup #image").change(function() {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $(".popup #preview").attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+}
+
+function cancelCreateEventPopup() {
+    hideCreateEventPopup();
+    $(".popup>form").replaceWith(form_backup);
 }
 
 function hideCreateEventPopup() {
@@ -80,19 +95,30 @@ function hideCreateEventPopup() {
 }
 
 function confirmCreateEvent() {
-    var form = $(".popup>form");
+    var form = $(".popup form");
 
     var errors = false;
     form.find("ins").remove(); // Remove warnings
 
-    var re = /^\w+[\s\w+]*\w$/;
-    if (!re.test(form.find("input[name='description']").prop('value'))) {
-        form.find("input[name='description']").after("<ins class='warning'>Invalid description</ins>");
+    var image = form.find("#image")[0].files[0];
+    if (!image) {
+        form.find("#image").after("<ins class='warning'>Event image is required</ins>");
         errors = true;
     }
 
-    if (!Date.parse(form.find("input[name='date']").prop('value'))) {
-        form.find("input[name='date']").after("<ins class='warning'>Invalid date</ins>");
+    if (form.find("#type").prop('value') == 'Select Type') {
+        form.find("#type").after("<ins class='warning'>Event type is required</ins>");
+        errors = true;
+    }
+
+    if (!Date.parse(form.find("#date").prop('value'))) {
+        form.find("#date").after("<ins class='warning'>Invalid date</ins>");
+        errors = true;
+    }
+
+    var re = /^\w+[\s\w+]*\w$/;
+    if (!re.test(form.find("#description").prop('value'))) {
+        form.find("#description").after("<ins class='warning'>Invalid description</ins>");
         errors = true;
     }
 
@@ -104,4 +130,5 @@ function confirmCreateEvent() {
     form.append("<input type='hidden' name='create_btn'>");
 
     form.submit();
+    return true;
 }

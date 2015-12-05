@@ -28,22 +28,33 @@
 
     background-color: white;
 
-    h1 {
-        padding: 15px;
-        margin: 0;
-        background-color: #303030;
-        color: white;
-    }
+    .popup-container {
+        position:relative;
 
-    form {
-        padding: 15px;
-
-        input, select {
-            margin: 10px 0px;
+        h1 {
+            padding: 15px;
+            margin: 0;
+            background-color: #303030;
+            color: white;
         }
 
-        input[name=date] {
-            z-index: 100000;
+        form {
+            padding: 15px;
+            height: 100%;
+
+            #preview {
+                max-height: 150px;
+                width: auto;
+            }
+
+            input, select {
+                margin: 10px 0px;
+            }
+
+            input[name=date] {
+                z-index: 100000;
+            }
+
         }
 
         #btn_container {
@@ -56,6 +67,7 @@
             background-color: #505050;
             display: inline-block;
             font-size: 0;
+
             input[type=button] {
                 box-sizing: border-box;
                 padding: 0;

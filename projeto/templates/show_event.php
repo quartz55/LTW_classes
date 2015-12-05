@@ -1,8 +1,9 @@
 <div id="info">
     <h1>Event info</h1>
-    <form action="action_edit_event.php" method="post" >
+    <form action="action_edit_event.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?=$event['id']?>">
         <ul>
+            <li><img id="preview" src="<?=$event['image']?>"></li>
             <li><b>Created by</b>
                 <a href="show_user.php?username=<?=$event['creator']?>"> <?=$event['creator'] ?></a>
             </li>

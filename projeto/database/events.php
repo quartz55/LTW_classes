@@ -108,22 +108,22 @@ function deleteEvent($id) {
     return true;
 }
 
-function editEvent($id, $date, $description, $type) {
+function editEvent($id, $date, $description, $type, $image) {
     global $db;
 
     $a = $db->prepare('UPDATE events
-SET date = ?, description = ?, type = ?
+SET date = ?, description = ?, type = ?, image = ?
 WHERE events.id = ?');
-    $a->execute(array($date, $description, $type, $id));
+    $a->execute(array($date, $description, $type, $image, $id));
 
     return true;
 }
 
-function createEvent($date, $description, $type, $creator) {
+function createEvent($date, $description, $type, $creator, $image) {
     global $db;
 
-    $a = $db->prepare('INSERT INTO events VALUES(null, ?, ?, ?, ?)');
-    $a->execute(array($date, $description, $type, $creator));
+    $a = $db->prepare('INSERT INTO events VALUES(null, ?, ?, ?, ?, ?)');
+    $a->execute(array($date, $description, $type, $creator, $image));
 
     return true;
 }
