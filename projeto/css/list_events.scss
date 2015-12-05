@@ -1,7 +1,7 @@
 /* Popup */
 
 .black_overlay {
-    position:absolute;
+    position:fixed;
     display:none;
     top: 0%;
     left: 0%;
@@ -21,7 +21,8 @@
     top: 25%;
     left: 25%;
     width: 50%;
-    height: 50%;
+    /* height: 50%; */
+    height: auto;
     z-index: 1001;
 
     overflow: auto;
@@ -43,7 +44,7 @@
             height: 100%;
 
             #preview {
-                max-height: 150px;
+                height: 150px;
                 width: auto;
             }
 
@@ -59,7 +60,7 @@
 
         #btn_container {
             white-space: nowrap;
-            position: absolute;
+            /* position: absolute; */
             bottom: 0;
             left: 0;
             width: 100%;
