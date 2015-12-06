@@ -1,10 +1,8 @@
-<?php
-include_once("database/events.php");
-?>
-
-<h2 class="maintitle">Events:</h2>
-<ul id="events_list">
-</ul>
+<div class="list-container">
+    <h1 class="maintitle">Events</h1>
+    <ul id="events_list">
+    </ul>
+</div>
 
 <!-- Create event popup -->
 

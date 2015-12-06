@@ -17,9 +17,8 @@
         <div class="nav_buttons">
             <h2>Menu</h2>
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="list_users.php">Users</a></li>
                 <li><a href="list_events.php">Events</a></li>
+                <li><a href="list_users.php">Users</a></li>
             </ul>
         </div>
         <div id="main">

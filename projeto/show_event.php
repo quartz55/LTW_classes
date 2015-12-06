@@ -23,6 +23,7 @@ if ($event['private']) {
 ?>
 
 <link rel="stylesheet" href="css/show_event.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/database.js"></script>
@@ -43,8 +44,8 @@ if ($event['private']) {
             <?php } ?>
             <?php if ($_SESSION['username'] == $event['creator']
                                             || $_SESSION['username'] == 'admin') { ?>
-                <li id="edit_btn"><a onclick="toggleEditMode()" href="#">Edit event</a></li>
-                <li><a onclick="confirmDelete('action_delete_event.php?id=<?=$id?>');" href="#">Delete event</a></li>
+                <li id="edit_btn"><a href="javascript:toggleEditMode();">Edit event</a></li>
+                <li><a href="javascript:confirmDelete('action_delete_event.php?id=<?=$id?>');">Delete event</a></li>
             <?php } ?>
         <?php }?>
         <li><a id="back_btn" href="list_events.php">Back</a></li>

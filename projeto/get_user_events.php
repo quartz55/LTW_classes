@@ -13,6 +13,9 @@ if (isset($_GET['user'])) {
 else if (isset($_GET['private'])){
     $events = getPrivateEvents();
 }
+else if (isset($_GET['admin'])) {
+    $events = getEvents();
+}
 else {
     $events = getPublicEvents();
 }

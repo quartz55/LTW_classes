@@ -1,3 +1,40 @@
+.list-container {
+  background-color: white; }
+  .list-container .maintitle {
+    background-color: #303030;
+    color: white;
+    margin: 0;
+    padding: 0.5em; }
+
+#events_list {
+  margin: 1em 0;
+  padding: 0;
+  list-style-type: none; }
+
+#events_list li {
+  display: block;
+  background-color: none;
+  padding: 5px;
+  font-size: 16px;
+  color: #303030; }
+  #events_list li:hover {
+    background-color: deepskyblue;
+    cursor: pointer; }
+  #events_list li img {
+    float: left;
+    height: 20px; }
+  #events_list li .info {
+    margin-left: 15px;
+    text-align: middle; }
+  #events_list li .creator {
+    float: right;
+    color: grey; }
+
+#events_list a {
+  text-align: left;
+  text-decoration: none;
+  color: #303030; }
+
 /* Popup */
 .black_overlay {
   position: fixed;
@@ -56,22 +93,5 @@
         margin: 0;
         width: 50%;
         height: 100%; }
-
-#events_list {
-  margin: 1em 0;
-  padding: 0;
-  list-style-type: none; }
-
-#events_list li {
-  display: block;
-  background-color: #303030;
-  /* margin: 5px 0; */
-  padding: 5px;
-  color: white; }
-
-#events_list a {
-  text-align: left;
-  text-decoration: none;
-  color: deepskyblue; }
 
 /*# sourceMappingURL=list_events.css.map */

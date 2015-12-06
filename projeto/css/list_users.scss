@@ -1,0 +1,24 @@
+.list-container {
+    background-color: white;
+    .maintitle {
+        background-color: #303030;
+        color: white;
+        margin: 0;
+        padding: 0.5em;
+    }
+    ul {
+        margin: 0;
+        padding: 15px;
+        li {
+            display: block;
+            a {
+                text-decoration: none;
+                color: #303030;
+                font-weight: bold;
+                &:hover {
+                    color: deepskyblue;
+                }
+            }
+        }
+    }
+}

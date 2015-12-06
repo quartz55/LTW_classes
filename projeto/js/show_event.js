@@ -54,7 +54,7 @@ function toggleEditMode() {
     } else {
         saveCurrForm();
         $("#edit_btn>a").html("Cancel Edit");
-        $("#edit_btn").after("<li id='confirm_btn'><a href='#' onclick='confirmEdit()'>Confirm Edit</a></li>");
+        $("#edit_btn").after("<li id='confirm_btn'><a href='javascript:confirmEdit();'>Confirm Edit</a></li>");
 
         $("#preview").after("<input hidden name='image' id='img_picker' type='file'>");
         $("#preview").wrap("<div class='hover'></div>");
@@ -106,28 +106,27 @@ function confirmEdit() {
     var errors = false;
     $("#info>form ins").remove(); // Remove warnings
 
-    var image = $("#img_picker")[0].files[0];
-    if (!image) {
-        $("#input[name='image']").after("<ins class='warning'>Event image is required</ins>");
-        errors = true;
-    }
-
     if (!Date.parse($("#date>input").prop('value'))) {
         $("#date>input").after("<ins class='warning'>Invalid date</ins>");
+        console.log('date');
         errors = true;
     }
 
     var re = /^\w+[\s\w+]*\w$/;
     if (!re.test($("#desc>input").prop('value'))) {
         $("#desc>input").after("<ins class='warning'>Invalid description</ins>");
+        console.log('desc');
         errors = true;
     }
 
+    console.log('teste');
     if (errors) return false;
+    console.log('teste2');
 
     var conf = window.confirm("Are you sure you want to edit this event?");
     if (conf) {
         setRedirect();
+        $("#info>form").append('<input type="hidden" name="confirm_btn">');
         $("#info>form").submit();
         return true;
     }
@@ -145,12 +144,3 @@ function addTypes(types) {
     }
 }
 
-// Misc
-String.prototype.format = function() {
-    var formatted = this;
-    for (var i = 0; i < arguments.length; i++) {
-        var regexp = new RegExp('\\{'+i+'\\}', 'gi');
-        formatted = formatted.replace(regexp, arguments[i]);
-    }
-    return formatted;
-};

@@ -5,6 +5,8 @@ function uploadImage($image, $dir) {
     $file_name = $image['name'];
     $tmp_name = $image['tmp_name'];
 
+    if ($image['name'] == '') return 'no_file';
+
     $target_file = $dir . basename($image['name']);
     $uploadOk = 1;
 

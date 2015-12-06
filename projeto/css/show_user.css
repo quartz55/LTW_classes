@@ -1,0 +1,36 @@
+.container {
+  background-color: white;
+  margin-bottom: 15px; }
+  .container h1 {
+    background-color: #303030;
+    color: white;
+    margin: 0;
+    padding: 0.5em; }
+  .container > ul {
+    margin: 1em 0;
+    padding: 0 15px; }
+    .container > ul li {
+      display: block; }
+  .container .sub-category {
+    padding: 0 15px; }
+    .container .sub-category:last-child {
+      padding-bottom: 15px; }
+    .container .sub-category .header {
+      background-color: #A0A0A0;
+      margin: 0px 0px;
+      padding: 0.5em; }
+      .container .sub-category .header span {
+        font-weight: bold;
+        font-size: 20px;
+        color: white; }
+    .container .sub-category ul {
+      padding: 0px 15px; }
+      .container .sub-category ul li {
+        display: block; }
+        .container .sub-category ul li a {
+          text-decoration: none;
+          color: #303030; }
+          .container .sub-category ul li a:hover {
+            color: deepskyblue; }
+
+/*# sourceMappingURL=show_user.css.map */

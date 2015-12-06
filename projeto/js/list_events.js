@@ -9,7 +9,7 @@ $(document).ready(function() {
     queryDatabase("database/event_types.php", function (data) {types = data; addTypes(); form_backup = $(".popup>form").clone();});
 });
 
-function listAllEvents() {
+function listAllEvents(username) {
     var func = function(events) {
         $("#events_list").empty();
         if (events.length <= 0) {
@@ -20,7 +20,11 @@ function listAllEvents() {
             }
         }
     };
-    queryDatabase("get_user_events.php", func);
+    if (username == 'admin') {
+        console.log('admin mode');
+        queryDatabase("get_user_events.php?admin", func);
+    }
+    else queryDatabase("get_user_events.php", func);
     return true;
 }
 
@@ -53,9 +57,14 @@ function listAttendingEvents(user) {
 }
 
 function listEvent(event, element) {
-    var html_string = "<li><a href='show_event.php?id=" + event.id + "'>" +
-        event.date + " | " + event.type + " | " + event.description + "</a>" +
-        " Created by " + event.creator + "</li>";
+    var html_string = "<li onclick='window.location=\"show_event.php?id={0}\";'>"+
+            "<img src='{5}'> <span class='info'>{1} | {2} | {3}</span>{6}<span class='creator'>Created by {4}</span></li>";
+
+    var private_text = "";
+    if (event.private == "1") {
+        private_text = "<ins class='warning'>Private</ins>";
+    }
+    html_string = html_string.format(event.id, event.date, event.type, event.description, event.creator, event.image, private_text);
     element.append(html_string);
 }
 

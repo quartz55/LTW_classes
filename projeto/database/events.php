@@ -126,6 +126,17 @@ function deleteEvent($id) {
     return true;
 }
 
+function editEventNoImage($id, $date, $description, $type, $private) {
+    global $db;
+
+    $a = $db->prepare('UPDATE events
+SET date = ?, description = ?, type = ?, private = ?
+WHERE events.id = ?');
+    $a->execute(array($date, $description, $type, $private, $id));
+
+    return true;
+}
+
 function editEvent($id, $date, $description, $type, $image, $private) {
     global $db;
 
