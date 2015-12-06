@@ -4,6 +4,7 @@
         <input type="hidden" name="id" value="<?=$event['id']?>">
         <ul>
             <li><img id="preview" src="<?=$event['image']?>"></li>
+            <li><span id="privacy"><?php if($event['private']) echo "Private"; else echo "Public";?> event</span></li>
             <li><b>Created by</b>
                 <a href="show_user.php?username=<?=$event['creator']?>"> <?=$event['creator'] ?></a>
             </li>
@@ -14,7 +15,12 @@
     </form>
 
     <div id="registered">
-        <h3>Registered users</h3>
+        <div class="header">
+            <span>Registered users</span>
+            <?php if($logged && $event['creator'] == $_SESSION['username']) {?>
+                <a href="javascript:toggleInviteMode();" class="button">Invite</a>
+            <?php } ?>
+        </div>
         <ul>
             <?php if (count($registered) <= 0) {?>
                 <s>No users have registered in this event</s>
@@ -62,3 +68,10 @@
     </div>
 </div>
 <br>
+
+<form action="action_invite_users.php" method="post" id="invite_popup">
+    <input type="hidden" name="event" value="<?=$id?>">
+    <input type="submit" name="invite_btn" value="Invite" class="button" onclick="setRedirect();">
+
+
+</form>

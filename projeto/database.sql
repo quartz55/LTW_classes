@@ -11,7 +11,8 @@ date DATETIME,
 description VARCHAR,
 type VARCHAR,
 creator VARCHAR REFERENCES users(username),
-image VARCHAR
+image VARCHAR,
+private INTEGER
 );
 
 DROP TABLE IF EXISTS event_comments;

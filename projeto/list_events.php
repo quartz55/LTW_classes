@@ -13,7 +13,9 @@ include_once("templates/header.php");
 <script type="text/javascript" src="js/list_user_events.js"></script>
 <?php
 include_once("templates/list_events.php");
-
+?>
+<script type="text/javascript">listAllEvents();</script>
+<?php
 if (isset($_SESSION['username'])) { ?>
     <div class = "nav_buttons">
         <ul>

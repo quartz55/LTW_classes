@@ -43,6 +43,8 @@
       height: 200px; }
     #info > form > ul li {
       display: block; }
+      #info > form > ul li #privacy {
+        font-weight: bold; }
       #info > form > ul li a {
         color: deepskyblue;
         font-weight: bold;
@@ -50,12 +52,28 @@
         #info > form > ul li a:hover {
           color: black; }
   #info #registered {
-    margin: 0 15px; }
-    #info #registered h3 {
+    margin: 0 15px;
+    position: relative; }
+    #info #registered .header {
       background-color: #A0A0A0;
-      color: white;
       margin: 0px 0px;
       padding: 0.5em; }
+      #info #registered .header span {
+        font-weight: bold;
+        font-size: 20px;
+        color: white; }
+      #info #registered .header a {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 5px 10px;
+        color: #303030;
+        background-color: white; }
+        #info #registered .header a:hover {
+          color: #303030;
+          background-color: deepskyblue; }
     #info #registered ul {
       margin: 0;
       padding: 15px; }
@@ -125,5 +143,14 @@
       #comments #comment_form > form > input[name=comment_btn]:hover {
         background-color: deepskyblue;
         color: #303030; }
+
+#invite_popup {
+  position: fixed;
+  display: none;
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 15px; }
 
 /*# sourceMappingURL=show_event.css.map */

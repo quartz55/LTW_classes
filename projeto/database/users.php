@@ -20,6 +20,18 @@ function getUsers() {
     return $a->fetchAll();
 }
 
+function getNonRegisteredUsers($eventID) {
+    global $db;
+
+    $a = $db->prepare('SELECT * FROM users
+WHERE username NOT IN
+(SELECT user FROM event_registrations
+WHERE event_id = ?)');
+    $a->execute(array($eventID));
+
+    return $a->fetchAll();
+}
+
 function isRegistered($username) {
     return getUser($username) !== false;
 }

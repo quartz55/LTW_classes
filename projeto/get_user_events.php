@@ -10,8 +10,12 @@ if (isset($_GET['user'])) {
         $events = getUserEvents($_GET['user']);
     }
 }
-else {
-    $events = getEvents();
+else if (isset($_GET['private'])){
+    $events = getPrivateEvents();
 }
+else {
+    $events = getPublicEvents();
+}
+
 echo json_encode($events);
 ?>

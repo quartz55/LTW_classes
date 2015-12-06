@@ -12,6 +12,14 @@ $id = $_GET['id'];
 $event = getEvent($id);
 $registered = getRegistered($id);
 $comments = getComments($id);
+
+setcookie('currEvent', $id);
+
+if ($event['private']) {
+    if (!$logged || (!isRegisteredInEvent($id, $_SESSION['username']) && $_SESSION['username'] != 'admin' && $_SESSION['username'] != $event['creator'])) {
+        header("Location: " . "./list_events.php");
+    }
+}
 ?>
 
 <link rel="stylesheet" href="css/show_event.css">
@@ -27,7 +35,9 @@ $comments = getComments($id);
     <ul>
         <?php if ($logged) { ?>
             <?php if (!isRegisteredInEvent($id, $_SESSION['username'])) {?>
-                <li><a href="action_register_event.php?id=<?=$id?>">Register</a></li>
+                <?php if (!$event['private'] || $_SESSION['username'] == $event['creator']) {?>
+                    <li><a href="action_register_event.php?id=<?=$id?>">Register</a></li>
+                <?php }?>
             <?php } else {?>
                 <li><a href="action_unregister_event.php?id=<?=$id?>">Unregister</a></li>
             <?php } ?>

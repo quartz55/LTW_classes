@@ -68,6 +68,10 @@ function addTypes () {
     }
 }
 
+////////////////////////
+// Create event popup //
+////////////////////////
+
 function showCreateEventPopup() {
     $(".popup").css('display', 'block');
     $(".black_overlay").css('display', 'block');
